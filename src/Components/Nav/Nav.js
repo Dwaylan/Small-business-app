@@ -35,7 +35,7 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            Austin Small Business
           </Typography>
           <Button color="inherit">Listings</Button>
           <Button color="inherit">Login</Button>
