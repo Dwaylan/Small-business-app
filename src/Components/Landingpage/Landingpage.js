@@ -14,6 +14,8 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import Nav from "../Nav";
+import Maps from "../Maps";
 
 const useRowStyles = makeStyles({
   root: {
@@ -98,6 +100,7 @@ const rows = [
 function CollapsibleTable() {
   return (
     <TableContainer component={Paper}>
+      <Nav />
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>

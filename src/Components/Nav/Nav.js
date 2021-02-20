@@ -38,7 +38,14 @@ export default function ButtonAppBar() {
             Austin Small Business
           </Typography>
           <Button color="inherit">Listings</Button>
-          <Button color="inherit">Login</Button>
+          <Button
+            color="inherit"
+            onClick={() => {
+              console.log("button was clicked");
+            }}
+          >
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
