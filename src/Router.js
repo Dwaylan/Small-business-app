@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router";
 import LandingPage from "./Components/Landingpage";
 import cookie from "cookie";
 import Loginpage from "./Components/Loginpage";
+import Listingspage from "./Components/Listingspage";
 
 const checkAuth = () => {
   const cookie = cookie.parse(document.cookie);
@@ -25,6 +26,7 @@ const Router = () => {
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/login" component={Loginpage} />
+      <Route exact path="/listings" component={Listingspage} />
     </Switch>
   );
 };
