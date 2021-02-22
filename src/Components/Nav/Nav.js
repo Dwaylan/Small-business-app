@@ -6,7 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import LoginPage from "../Loginpage";
+import Loginpage from "../Loginpage";
+import Listingspage from "../Listingspage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,11 +39,20 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             Austin Small Business
           </Typography>
-          <Button color="inherit">Listings</Button>
           <Button
             color="inherit"
             onClick={() => {
-              console.log("button was clicked");
+              // props.history.push("/listings");
+              console.log("Listings button was clicked");
+            }}
+          >
+            Listings
+          </Button>
+          <Button
+            color="inherit"
+            onClick={() => {
+              // props.history.push("/login");
+              console.log("Login button was clicked");
             }}
           >
             Login

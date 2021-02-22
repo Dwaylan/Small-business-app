@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-// import Buttons from "../Buttons";
 import Nav from "../Nav";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +34,7 @@ export default function FormPropsTextFields({ Login, error }) {
         <TextField
           required
           id="name"
-          label="Required"
+          label="Username"
           defaultValue="Username*"
           onChange={(e) => setDetails({ ...details, name: e.target.value })}
           value={details.name}
