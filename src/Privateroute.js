@@ -34,22 +34,3 @@ export default function Privateroute({
     />
   );
 }
-
-// const RouteWrapper = ({
-//     component: Component,
-//     isPrivate: isPrivate,
-//     ...rest
-//   }) => {
-//     const signed = false;
-
-//     // If route is private and the user is not signed in redirect the user to the login page
-//     if (isPrivate && !signed) {
-//       return <Redirect to="/login" />;
-//     }
-
-//     if (!isPrivate && signed) {
-//       return <Redirect to="/" />;
-//     }
-
-//     return <Route {...rest} component={Component} />;
-//   };
