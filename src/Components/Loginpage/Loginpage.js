@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import Nav from "../Nav";
+import { Route, Redirect, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,10 +14,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FormPropsTextFields({ Login, error }) {
+export default function FormPropsTextFields() {
   const classes = useStyles();
-
+  const [user, setUser] = useState({ name: "", Password: "" });
   const [details, setDetails] = useState({ name: "", Password: "" });
+  let history = useHistory();
+
+  const Login = (details) => {
+    console.log(details);
+
+    if (user.Password && user.name)
+      // console.log("logged in");
+      return history.push("/listings");
+    else {
+      console.log("credential errors");
+    }
+    setUser({
+      name: details.name,
+      Password: details.Password,
+    });
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -48,6 +66,17 @@ export default function FormPropsTextFields({ Login, error }) {
           onChange={(e) => setDetails({ ...details, Password: e.target.value })}
           value={details.Password}
         />
+        <div className={classes.root}>
+          <Button
+            variant="contained"
+            color="primary"
+            onSubmit={Login}
+            type="submit"
+            value="LOGIN"
+          >
+            Login
+          </Button>
+        </div>
       </div>
     </form>
   );

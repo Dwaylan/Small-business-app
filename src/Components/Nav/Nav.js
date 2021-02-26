@@ -13,36 +13,54 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: "inherit",
+    variant: "contained",
   },
   title: {
     flexGrow: 1,
   },
+  logInButton: {
+    marginRight: theme.spacing(2),
+    color: "inherit",
+    variant: "contained",
+  },
 }));
 
 function LogInButton() {
+  const classes = useStyles();
   let history = useHistory();
 
   function handleClick() {
     history.push("/login");
   }
   return (
-    <button type="button" color="inherit" onClick={handleClick}>
+    <button type="button" className={classes.logInButton} onClick={handleClick}>
       Log In
     </button>
   );
 }
 
 function ListingsButton() {
+  const classes = useStyles();
   let history = useHistory();
 
   function handleClick() {
     history.push("/listings");
   }
   return (
-    <button type="button" color="inherit" onClick={handleClick}>
+    <button
+      type="button"
+      className={classes.listingsInButton}
+      onClick={handleClick}
+    >
       Listings
     </button>
   );
+}
+
+function homeClick() {
+  let history = useHistory;
+  history.push("/");
 }
 
 export default function ButtonAppBar() {
@@ -57,6 +75,7 @@ export default function ButtonAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={homeClick}
           >
             <MenuIcon />
           </IconButton>

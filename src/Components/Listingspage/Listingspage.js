@@ -1,9 +1,12 @@
 import React from "react";
 
-export default function Listingspage() {
+function Listingspage() {
   return (
     <div>
-      <h1>Listings</h1>
+      <h1>Listings page for Listings</h1>
+      <button>Delete</button>
     </div>
   );
 }
+
+export default Listingspage;

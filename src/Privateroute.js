@@ -2,10 +2,8 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const signed = false;
-
 Privateroute.defaultProps = {
-  isPrivate: false,
+  isPrivate: true,
 };
 
 Privateroute.propTypes = {
@@ -19,18 +17,16 @@ export default function Privateroute({
   isPrivate: isPrivate,
   ...rest
 }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        if (isPrivate && !signed) {
-          return <Redirect to="/login" />;
-        }
+  // Default status: the user is not signed in
+  const signed = true;
 
-        if (!isPrivate && signed) {
-          return <Redirect to="/" />;
-        }
-      }}
-    />
-  );
+  // if the route is private and the user is not signed in
+  if (isPrivate && !signed) {
+    return <Redirect to="/login" />;
+  }
+  // If the route is NOT public and the user is signed in
+  if (!isPrivate && signed) {
+    return <Redirect to="/" />;
+  }
+  return <route {...rest} component={Component} />;
 }
