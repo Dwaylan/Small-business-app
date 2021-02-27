@@ -14,7 +14,7 @@ Privateroute.propTypes = {
 
 export default function Privateroute({
   component: Component,
-  isPrivate: isPrivate,
+  isPrivate,
   ...rest
 }) {
   // Default status: the user is not signed in
@@ -28,5 +28,5 @@ export default function Privateroute({
   if (!isPrivate && signed) {
     return <Redirect to="/" />;
   }
-  return <route {...rest} component={Component} />;
+  return <Route {...rest} component={Component} />;
 }

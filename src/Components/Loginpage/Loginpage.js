@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -16,29 +16,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FormPropsTextFields() {
   const classes = useStyles();
-  const [user, setUser] = useState({ name: "", Password: "" });
-  const [details, setDetails] = useState({ name: "", Password: "" });
+  const [user, setUser] = useState({ name: "", password: "" });
   let history = useHistory();
 
-  const Login = (details) => {
-    console.log(details);
+  useEffect(() => {
+    console.log(user.password.length > 0 && user.name.length > 0);
+    console.log(user);
+  }, [user]);
 
-    if (user.Password && user.name)
-      // console.log("logged in");
-      return history.push("/listings");
-    else {
+  const Login = (user) => {
+    console.log(user);
+    if (user.password.length > 0 && user.name.length > 0) {
+      console.log("logged in");
+      history.push("/listings");
+    } else {
       console.log("credential errors");
     }
-    setUser({
-      name: details.name,
-      Password: details.Password,
-    });
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    Login(details);
+    Login(user);
   };
   return (
     <form
@@ -54,17 +53,17 @@ export default function FormPropsTextFields() {
           id="name"
           label="Username"
           defaultValue="Username*"
-          onChange={(e) => setDetails({ ...details, name: e.target.value })}
-          value={details.name}
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
+          value={user.name}
         />
         <TextField
           required
-          id="Password"
-          label="Password"
+          id="password"
+          label="password"
           type="password"
           autoComplete="current-password"
-          onChange={(e) => setDetails({ ...details, Password: e.target.value })}
-          value={details.Password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          value={user.password}
         />
         <div className={classes.root}>
           <Button
