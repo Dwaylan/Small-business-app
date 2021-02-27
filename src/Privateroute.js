@@ -18,7 +18,7 @@ export default function Privateroute({
   ...rest
 }) {
   // Default status: the user is not signed in
-  const signed = true;
+  const signed = false;
 
   // if the route is private and the user is not signed in
   if (isPrivate && !signed) {

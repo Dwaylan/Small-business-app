@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import HomeIcon from "@material-ui/icons/Home";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,6 +22,13 @@ const useStyles = makeStyles((theme) => ({
   logInButton: {
     marginRight: theme.spacing(2),
     color: "inherit",
+    background: "#3f51b5",
+    variant: "contained",
+  },
+  listingsInButton: {
+    marginRight: theme.spacing(2),
+    color: "inherit",
+    background: "#3f51b5",
     variant: "contained",
   },
 }));
@@ -58,9 +65,12 @@ function ListingsButton() {
   );
 }
 
-function homeClick() {
-  let history = useHistory;
-  history.push("/");
+function HomeButton() {
+  let history = useHistory();
+  function handleClick() {
+    history.push("/");
+  }
+  return <HomeIcon onClick={handleClick} />;
 }
 
 export default function ButtonAppBar() {
@@ -75,9 +85,9 @@ export default function ButtonAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
-            onClick={homeClick}
+            // onClick={handleClick}
           >
-            <MenuIcon />
+            <HomeButton />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             Austin Small Business
