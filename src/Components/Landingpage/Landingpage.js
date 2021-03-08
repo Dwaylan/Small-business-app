@@ -25,15 +25,15 @@ const useRowStyles = makeStyles({
   },
 });
 
-function createData(name, description, hours, address, apicall) {
-  return {
-    name,
-    description,
-    hours,
-    address,
-    apicall,
-  };
-}
+// function createData(name, description, hours, address, apicall) {
+//   return {
+//     name,
+//     description,
+//     hours,
+//     address,
+//     apicall,
+//   };
+// }
 
 function Row(props) {
   const { row } = props;
@@ -70,34 +70,57 @@ function Row(props) {
   );
 }
 
-const rows = [
-  createData(
-    "Lucy in Disguise",
-    "Enormous outpost offering costumes, vintage clothing, boas, masks, & wigs ",
-    "11am-7pm",
-    "1506 S Congress Ave, Austin, TX, 78704"
-  ),
-  createData(
-    "Black Star Co-op Pub and Brewery",
-    "A beer co-operative and brewpub with a no-tip policy",
-    "9-10",
-    "7020 Easy Wind Dr., Ste.100, Austin, TX"
-  ),
-  createData(
-    "Freestyle Language Center",
-    "A brand new language school aimed at adult learners",
-    "9-10",
-    "801 Rio Grande st, Austin, TX"
-  ),
-  createData(
-    "Esther's Follies",
-    "Comedy sketches, vegas style magic, and politcal satire ",
-    "3pm-9:30pm",
-    "525 E 6th St, Austin, TX 78701"
-  ),
-];
+// const rows = [
+//   createData(
+//     "Lucy in Disguise",
+//     "Enormous outpost offering costumes, vintage clothing, boas, masks, & wigs ",
+//     "11am-7pm",
+//     "1506 S Congress Ave, Austin, TX, 78704"
+//   ),
+//   createData(
+//     "Black Star Co-op Pub and Brewery",
+//     "A beer co-operative and brewpub with a no-tip policy",
+//     "9-10",
+//     "7020 Easy Wind Dr., Ste.100, Austin, TX"
+//   ),
+//   createData(
+//     "Freestyle Language Center",
+//     "A brand new language school aimed at adult learners",
+//     "9-10",
+//     "801 Rio Grande st, Austin, TX"
+//   ),
+//   createData(
+//     "Esther's Follies",
+//     "Comedy sketches, vegas style magic, and politcal satire ",
+//     "3pm-9:30pm",
+//     "525 E 6th St, Austin, TX 78701"
+//   ),
+// ];
 
-function CollapsibleTable() {
+// function CollapsibleTable() {
+//   return (
+//     <TableContainer component={Paper}>
+//       <Nav />
+//       <Table aria-label="collapsible table">
+//         <TableHead>
+//           <TableRow>
+//             <TableCell />
+//             <TableCell>Name</TableCell>
+//             <TableCell align="right">Description</TableCell>
+//             <TableCell align="right">Hours</TableCell>
+//             <TableCell align="right">Address</TableCell>
+//           </TableRow>
+//         </TableHead>
+//         <TableBody>
+//           {rows.map((row) => (
+//             <Row key={row.name} row={row} />
+//           ))}
+//         </TableBody>
+//       </Table>
+//     </TableContainer>
+//   );
+// }
+const Landingpage = (props) => {
   return (
     <TableContainer component={Paper}>
       <Nav />
@@ -112,13 +135,13 @@ function CollapsibleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {props.business.map((row) => (
             <Row key={row.name} row={row} />
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 
-export default CollapsibleTable;
+export default Landingpage;
