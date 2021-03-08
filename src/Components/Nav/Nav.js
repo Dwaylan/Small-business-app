@@ -85,7 +85,6 @@ export default function ButtonAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
-            // onClick={handleClick}
           >
             <HomeButton />
           </IconButton>
