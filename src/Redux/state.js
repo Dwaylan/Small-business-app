@@ -6,21 +6,32 @@ export default {
   business: [
     {
       id: 1,
-      name: "Minh's Cafe",
-      description:
-        "Pho, vermicelli bowls & some standard Chinese dishes are the draw at this simple but modern eatery",
-      hours: "11AM–2:30PM 5–9PM",
-      address: "12221 Riata Trace Pkwy #190, Austin, TX 78727",
-      mapping:
-        "https://maps.googleapis.com/maps/api/staticmap?center=30.428826343713236, -97.75040640192678&markers=markerStyles|30.428826343713236, -97.75040640192678&zoom=15&size=400x400&key=AIzaSyDdmFP5qJMaXuqdi1goq9VWpUlvFyf4VgI",
+      name: "Lucy in Disguise",
+      descriton:
+        "Enormous outpost offering costumes, vintage clothing, boas, masks, & wigs",
+      hours: "11am-7pm",
+      address: "1506 S Congress Ave, Austin, TX, 78704",
     },
     {
       id: 2,
-      name: "Business 2",
-      description: "Business Description",
-      hours: "2-3",
-      address: "456 NotHome",
-      mapping: "notyet found",
+      name: "Black Star Co-op Pub and Brewery",
+      descriton: "A beer co-operative and brewpub with a no-tip policy",
+      hours: "9am-10pm",
+      address: "7020 Easy Wind Dr., Ste.100, Austin, TX",
+    },
+    {
+      id: 3,
+      name: "Freestyle Language Center",
+      descriton: "A brand new language school aimed at adult learners",
+      hours: "9am-10pm",
+      address: "801 Rio Grande st, Austin, TX",
+    },
+    {
+      id: 4,
+      name: "Esther's Follies",
+      descriton: "Comedy sketches, vegas style magic, and politcal satire",
+      hours: "3pm-9:30pm",
+      address: "525 E 6th St, Austin, TX ",
     },
   ],
 };

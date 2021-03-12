@@ -1,19 +1,24 @@
-import {combineReducers} from "redux"
+import { combineReducers } from "redux";
 
 const business = (state = [], action) => {
-    switch (action.type){
-        case "ADD_BUSINESS":
-            return [...state, action.value]
-        case "REMOVE_BUSINESS":
-            const newBusiness = [...state]
-            newBusiness.splice(action.value, 1)
-            return newBusiness
+  switch (action.type) {
+    case "ADD_BUSINESS":
+      return [...state, action.value];
+    case "REMOVE_BUSINESS":
+      const newBusiness = [...state];
+      newBusiness.splice(action.value, 1);
+      return newBusiness;
 
-            default:
-                return state
-    }
-}
+    default:
+      return state;
+  }
+};
 
-const user = (state = null) = state
+const user = (state = null) => state;
 
-export default combineReducers({business, user})
+const allReducers = combineReducers({
+  business: business,
+  user: user,
+});
+
+export default allReducers;

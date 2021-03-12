@@ -32,6 +32,7 @@ export default function FormPropsTextFields() {
     } else {
       console.log("credential errors");
     }
+    document.cookie = "loggedIn=true; max-age=60*1000";
   };
 
   const submitHandler = (e) => {

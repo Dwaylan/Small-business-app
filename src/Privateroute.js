@@ -1,32 +1,21 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
+import cookie from "cookie";
 
-Privateroute.defaultProps = {
-  isPrivate: true,
+const checkAuth = () => {
+  const cookies = cookie.parse(document.cookie);
+  return cookies["loggedIn"] ? true : false;
 };
 
-Privateroute.propTypes = {
-  isPrivate: PropTypes.bool,
-  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
-    .isRequired,
+const Privateroute = ({ component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        checkAuth() ? <Component {...props} /> : <Redirect to="/login" />
+      }
+    />
+  );
 };
 
-export default function Privateroute({
-  component: Component,
-  isPrivate,
-  ...rest
-}) {
-  // Default status: the user is not signed in
-  const signed = false;
-
-  // if the route is private and the user is not signed in
-  if (isPrivate && !signed) {
-    return <Redirect to="/login" />;
-  }
-  // If the route is NOT public and the user is signed in
-  if (!isPrivate && signed) {
-    return <Redirect to="/" />;
-  }
-  return <Route {...rest} component={Component} />;
-}
+export default Privateroute;
